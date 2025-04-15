@@ -1,5 +1,11 @@
-# FROM - use this instruction to set Base Functionality You Need
+# Start with the Nginx image
 FROM nginx
 
-# COPY - use this instruction to copy files from host to above image
-COPY . /usr/share/nginx/html
+# Set the working directory (optional but makes it more explicit)
+WORKDIR /usr/share/nginx/html
+
+# Copy only the necessary files (assumes you're using React, so 'build' is the directory created)
+COPY build/ /usr/share/nginx/html/
+
+# Expose port 80 (the default port for Nginx)
+EXPOSE 80
