@@ -25,7 +25,7 @@ metadata:
 spec:
   selector:
     app: api3
-  port: 
+  ports: 
     - protocol: TCP
       port: 80
       targetPort: 3003
