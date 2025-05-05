@@ -1,0 +1,31 @@
+apiVersion: v1 
+kind: Deployment 
+metadata: 
+  name: api1-deployment
+spec: 
+  replicas:
+  selector: 
+    matchLabels:
+      app: api1 
+  template:
+    metadata:
+      labels:
+        app: api1
+    spec:
+      containers: 
+      - name: api1
+        image: kalyangali12/lms-api
+        ports: 
+        - containerPort: 3001
+---
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: api1-service
+spec:
+  selector:
+    app: api1 
+  port: 
+    - protocol: tcp
+      port: 80
+      targetPort: 3001
