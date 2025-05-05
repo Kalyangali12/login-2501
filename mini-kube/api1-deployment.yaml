@@ -25,7 +25,7 @@ metadata:
 spec:
   selector:
     app: api1 
-  port: 
+  ports: 
     - protocol: TCP
       port: 80
       targetPort: 3001
