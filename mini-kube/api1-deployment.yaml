@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
       - name: api1
-        image: kalyangali12/lms-api
+        image: kalyangali12/node-api
         ports: 
         - containerPort: 3001
 ---
