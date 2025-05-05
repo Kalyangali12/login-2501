@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: api2-deployment
 spec: 
-  replicas:
+  replicas: 1
   selector: 
     matchLabels:
       app: api2
@@ -24,8 +24,8 @@ metadata:
   name: api2-service
 spec:
   selector:
-    app: api2
+    app: api2 
   port: 
-    - protocol: tcp
+    - protocol: TCP
       port: 80
       targetPort: 3002

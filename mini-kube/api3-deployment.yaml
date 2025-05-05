@@ -3,7 +3,7 @@ kind: Deployment
 metadata: 
   name: api3-deployment
 spec: 
-  replicas:
+  replicas: 1
   selector: 
     matchLabels:
       app: api3
@@ -21,11 +21,11 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: api1-service
+  name: api3-service
 spec:
   selector:
-    app: api3 
+    app: api3
   port: 
-    - protocol: tcp
+    - protocol: TCP
       port: 80
       targetPort: 3003
