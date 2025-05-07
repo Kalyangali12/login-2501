@@ -18,14 +18,15 @@ spec:
               number: 80
       - path: /api2
         pathType: Prefix
-        backend: 
+        backend:
           service:
             name: api2-service
-            port: 80
+            port:
+              number: 80
       - path: /api3
         pathType: Prefix
         backend:
           service:
             name: api3-service
-            port: 
+            port:
               number: 80
