@@ -12,6 +12,6 @@ echo "Cleanup Document Root"
 sudo rm -rf /var/www/html
 
 echo "Clone Login App"
-sudo git clone https://github.com/ravi2krishna/login-2501.git /var/www/html
+sudo git clone https://github.com/kalyangali12/login-2501.git /var/www/html
 
 echo "Finished Deployment Process"
