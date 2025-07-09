@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: lms Project CloudFormation template.
 Resources:
-  lms-VPC:
+  lmsVPC:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
