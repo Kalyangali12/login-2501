@@ -75,3 +75,11 @@ Resources:
        DestinationCidrBlock: 0.0.0.0/0
        GatewayId:
          Ref: lmsInternetGateway
+      
+  lmswebsubnetRouteTableassociation:
+   Type: AWS::EC2::subnetRouteTableassociation
+   Properties:
+    SubnetId:
+     Ref: lmswebSubnet
+    RouteTableId:
+       Ref: lmsPublicRouteTable
