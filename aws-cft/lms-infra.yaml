@@ -109,4 +109,10 @@ Resources:
     RouteTableId:
        Ref: lmsprivateRouteTable
 
-  
+   lmswebSubnetNetworkAclAssociation:
+     Type: AWS::EC2::SubnetNetworkAclAssociation
+     Properties:
+       SubnetId:
+        Ref: lmswebSubnet
+       NetworkAclId:
+         Ref: lmsRouteTable
