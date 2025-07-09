@@ -76,10 +76,37 @@ Resources:
        GatewayId:
          Ref: lmsInternetGateway
       
-  lmswebsubnetRouteTableassociation:
-   Type: AWS::EC2::subnetRouteTableassociation
+  lmswebSubnetRouteTableAssociation:
+   Type: AWS::EC2::SubnetRouteTableAssociation
    Properties:
     SubnetId:
      Ref: lmswebSubnet
     RouteTableId:
-       Ref: lmsPublicRouteTable
+       Ref: lmsRouteTable
+
+  lmsapiSubnetRouteTableAssociation:
+   Type: AWS::EC2::SubnetRouteTableAssociation
+   Properties:
+    SubnetId:
+     Ref: lmsapiSubnet
+    RouteTableId:
+       Ref: lmsRouteTable
+
+  lmsprivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:  
+        Ref: lmsVPC
+      Tags:
+      - Key: Name
+        Value: lms-private-routeTable
+
+  lmsdbSubnetRouteTableAssociation:
+   Type: AWS::EC2::SubnetRouteTableAssociation
+   Properties:
+    SubnetId:
+     Ref: lmsdbSubnet
+    RouteTableId:
+       Ref: lmsprivateRouteTable
+
+  
