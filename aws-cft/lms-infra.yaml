@@ -41,3 +41,37 @@ Resources:
       Tags:
       - Key: Name
         Value: lms-database-subnet
+
+  lmsInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+      - Key: Name
+        Value: lms-internet-gateway
+
+  lmsAttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: lmsVPC
+      InternetGatewayId:
+        Ref: lmsInternetGateway
+
+  lmsRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:  
+        Ref: lmsVPC
+      Tags:
+      - Key: Name
+        Value: lms-public-routeTable
+    
+  lmsinternetRoute:
+    Type: AWS::EC2::Route
+    DependsOn: lmsAttachGateway
+    Properties:
+       RouteTableId:
+         Ref: lmsRouteTable
+       DestinationCidrBlock: 0.0.0.0/0
+       GatewayId:
+         Ref: lmsInternetGateway
